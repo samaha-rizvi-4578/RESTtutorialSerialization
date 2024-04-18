@@ -1,7 +1,6 @@
 from rest_framework import serializers
 from snippets.models import Snippet, LANGUAGE_CHOICES, STYLE_CHOICES
-import sys
-from snippets.serializers import SnippetSerializer
+
 
 class SnippetSerializer(serializers.Serializer):
     id = serializers.IntegerField(read_only=True)
@@ -28,6 +27,3 @@ class SnippetSerializer(serializers.Serializer):
         instance.style = validated_data.get('style', instance.style)
         instance.save()
         return instance
-# A serializer class is very similar to a Django Form class, and includes similar validation flags on the various fields, such as required, max_length and default.
-# The field flags can also control how the serializer should be displayed in certain circumstances, such as when rendering to HTML. The {'base_template': 'textarea.html'} flag above is equivalent to using widget=widgets.Textarea on a Django Form class.
-sys.path.append('/D:/OneDrive - FAST National University/samaha/DjangoQuickStart/RESTTutorial/tutorial')
